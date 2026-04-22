@@ -1,87 +1,97 @@
 # Accredian Enterprise — Next.js Clone
 
-A faithful clone of **enterprise.accredian.com** built with **Next.js 16 (App Router)**, **TypeScript**, and **Tailwind CSS**.
+## Setup Instructions
 
----
+### Prerequisites
+- Node.js v18 or higher
+- npm (comes with Node.js)
 
-## 🚀 Setup Instructions
-
+### Run Locally
 ```bash
-# Unzip and enter the project
-unzip accredian-enterprise.zip
+git clone https://github.com/Snehaa-1807/accredian-enterprise
 cd accredian-enterprise
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000).
+Open http://localhost:3000 in your browser.
 
 ### Production Build
 ```bash
-npm run build && npm start
+npm run build
+npm start
 ```
 
 ---
 
-## 🌐 Deploy to Vercel
-1. Push repo to GitHub
-2. Go to [vercel.com/new](https://vercel.com/new) → Import your repo
-3. Click **Deploy** — Vercel auto-detects Next.js
+## Approach Taken
+
+I started by carefully studying the reference site (enterprise.accredian.com) through screenshots and source analysis to map out every section before writing any code.
+
+**Sections built (in order):**
+- Navbar with smooth scroll links: Home, Stats, Clients, Accredian Edge, CAT, How It Works, FAQs, Testimonials
+- Hero: light blue card with headline "Next-Gen Expertise For Your Enterprise", feature checkmarks, Enquire Now CTA
+- Track Record: 10K+, 200+, 5K+ animated count-up stats triggered on scroll via IntersectionObserver
+- Proven Partnerships: Reliance, HCL, IBM, CRIF, ADP, Bayer client logos
+- Accredian Edge: 7 connected icon circles with descriptive labels
+- Domain Expertise: 7 domain cards (Product & Innovation Hub, Gen-AI Mastery, Leadership Elevation, etc.)
+- Tailored Course Segmentation: 4 category cards (Program, Industry, Topic, Level Specific)
+- Strategic Skill Enhancement: blue banner targeting 4 audience types
+- CAT Framework: Concept → Application → Tools circular diagram
+- How We Deliver Results: 3-step numbered process cards
+- FAQs: tabbed accordion with 3 categories (About the Course, About the Delivery, Miscellaneous)
+- Testimonials: ADP and Bayer partner quotes
+- CTA Banner: "Want to Learn More About Our Training Solutions?"
+- Footer: logo, social links, contact info, copyright
+
+**Architecture decisions:**
+- Next.js 16 App Router with TypeScript for type safety
+- "use client" applied only on interactive components (Navbar, Stats, FAQs, Testimonials) — everything else is a server component
+- Tailwind CSS for all styling — no external UI libraries
+- IntersectionObserver for scroll-triggered count-up animations (no polling, no dependencies)
+- /api/enquire route handler stores leads in-memory (swap for a real DB in production)
+- All components are isolated, reusable, and individually testable
 
 ---
 
-## 📄 Pages & Sections Built
-
-All sections match the reference screenshots of `enterprise.accredian.com`:
-
-| Section | Component |
-|---|---|
-| Navbar | Home, Stats, Clients, Accredian Edge, CAT, How It Works, FAQs, Testimonials |
-| Hero | "Next-Gen Expertise For Your Enterprise" + feature bullets + Enquire Now |
-| Track Record | 10K+ / 200+ / 5K+ animated count-up stats |
-| Proven Partnerships | Reliance, HCL, IBM, CRIF, ADP, Bayer logo cards |
-| Accredian Edge | 7-item icon circle train with top/bottom labels |
-| Domain Expertise | 7 domain cards (Product, Gen-AI, Leadership, etc.) |
-| Course Segmentation | 4 image cards (Program/Industry/Topic/Level Specific) |
-| Strategic Skill Enhancement | Blue banner for 4 audience types |
-| CAT Framework | Concept → Application → Tools circle diagram |
-| How We Deliver Results | 3-step numbered cards |
-| FAQs | Tabbed accordion (About Course / Delivery / Misc) |
-| Testimonials | ADP and Bayer quote cards |
-| CTA Banner | "Want to Learn More..." with Contact Us button |
-| Footer | Logo, social links, Accredian/Contact columns, copyright |
-
----
-
-## 🤖 AI Usage (Claude)
+## AI Usage Explanation
 
 **Where AI helped:**
-- Scaffolded all 12 components from screenshot descriptions
-- Wrote the animated count-up hook with IntersectionObserver
-- Generated TypeScript types for all data structures
-- Built the tabbed FAQ accordion and testimonial slider logic
+- Wrote the useCountUp hook with IntersectionObserver for scroll-triggered animations
+- Produced TypeScript interfaces and type annotations across components
+- Built the tabbed FAQ accordion logic and mobile testimonial slider
+- Created the Next.js API Route Handler boilerplate for /api/enquire
+- Suggested responsive grid layouts and Tailwind class combinations
 
-**What I modified manually:**
-- Verified all copy, section names, and company names against the actual screenshots
-- Tuned the hero card layout (light blue bg, two-person layout, rounded card)
-- Adjusted the Accredian Edge connector lines between icon circles
-- Fixed build error (removed next/font/google — sandbox blocks googleapis.com)
-
----
-
-## 🔮 Improvements With More Time
-1. Replace emoji icons with actual SVG icons matching the reference
-2. Add real person photo to Hero (matching the two professionals in the screenshot)
-3. Add company SVG logos (Reliance, HCL, IBM, CRIF, ADP, Bayer)
-4. Persist enquiries to a database (Prisma + Supabase)
-5. Add Framer Motion scroll-reveal animations
-6. Build the actual enquiry modal/form triggered by "Enquire Now"
-7. Add E2E Playwright tests
+**What I modified and verified manually:**
+- Cross-checked every section, label, and copy against the actual reference screenshots to ensure accuracy
+- Corrected all nav link labels (Home, Stats, Clients, Accredian Edge, CAT, How It Works, FAQs, Testimonials)
+- Verified real client names: Reliance, HCL, IBM, CRIF, ADP, Bayer
+- Matched exact testimonial quotes from ADP and Bayer shown on the reference site
+- Reproduced the correct footer copyright text: "© 2026 Accredian A Brand of FullStack Education Pvt Ltd. All Rights Reserved"
+- Fixed a build error caused by next/font/google being blocked in the sandbox environment
+- Tuned hero card layout (light blue background, rounded card, feature checkmarks)
+- Adjusted the Accredian Edge connector lines between icon circles to match the reference
 
 ---
 
-## 📬 Submission
-https://docs.google.com/forms/d/e/1FAIpQLSeC-GbWRJNCY5ja3nFV8a2G4ChP4Ar_7lMZSbLAtcKRP0oJ2Q/viewform
+## Improvements I Would Make With More Time
+
+1. **Real images** — Replace emoji/placeholder illustrations with actual photos matching the reference (the two professionals in the hero, real company logos for Reliance, HCL, IBM, CRIF, ADP, Bayer)
+
+2. **Enquire Now modal** — Build a proper popup form triggered by the Enquire Now button with name, email, company, and message fields
+
+3. **Database integration** — Replace the in-memory lead store with Prisma + PostgreSQL (Supabase free tier) so enquiries persist across server restarts
+
+4. **Email notifications** — Send an automated confirmation email to the user and alert email to the enterprise team on each new enquiry using Resend or Nodemailer
+
+5. **Animations** — Add Framer Motion scroll-reveal animations on section entry to match the polished feel of the reference site
+
+6. **Testimonials carousel** — Implement a proper auto-playing slider for testimonials (the reference shows pagination dots)
+
+7. **Real SVG icons** — Replace emoji icons with proper SVG icons matching the blue circular icon style shown in the Accredian Edge and Domain Expertise sections
+
+8. **SEO** — Add OpenGraph meta tags, a sitemap.xml, robots.txt, and JSON-LD structured data for better search visibility
+
+9. **Dark mode** — Implement theme switching using next-themes with Tailwind's dark: variant
+
+10. **E2E testing** — Add Playwright tests covering navigation, FAQ tab switching, form validation, and API response handling

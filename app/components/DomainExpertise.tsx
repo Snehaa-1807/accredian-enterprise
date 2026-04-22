@@ -1,37 +1,79 @@
+import {
+  Lightbulb,
+  Brain,
+  Users,
+  BarChart3,
+  Settings,
+  Globe,
+  CreditCard
+} from "lucide-react";
+
 const domains = [
-  { icon: "💡", label: "Product & Innovation Hub" },
-  { icon: "🤖", label: "Gen-AI Mastery" },
-  { icon: "👥", label: "Leadership Elevation" },
-  { icon: "📊", label: "Tech & Data Insights" },
-  { icon: "⚙️", label: "Operations Excellence" },
-  { icon: "🌐", label: "Digital Enterprise" },
-  { icon: "💳", label: "Fintech Innovation Lab" },
+  { icon: Lightbulb, label: "Product & Innovation Hub" },
+  { icon: Brain, label: "Gen-AI Mastery" },
+  { icon: Users, label: "Leadership Elevation" },
+  { icon: BarChart3, label: "Tech & Data Insights" },
+  { icon: Settings, label: "Operations Excellence" },
+  { icon: Globe, label: "Digital Enterprise" },
+  { icon: CreditCard, label: "Fintech Innovation Lab" },
 ];
 
 export default function DomainExpertise() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-          Our <span className="text-blue-500">Domain Expertise</span>
+
+        <h2 className="text-center text-3xl font-bold text-gray-900 mb-3">
+          Our <span className="text-blue-600">Domain Expertise</span>
         </h2>
-        <p className="text-center text-gray-500 text-sm mb-10">
-          <span className="text-blue-500">Specialized Programs</span> Designed to Fuel Innovation
+
+        <p className="text-center text-base text-gray-600 mb-10">
+          <span className="text-blue-600">Specialized Programs</span>{" "}
+          Designed to Fuel Innovation
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {domains.map((d) => (
-            <div
-              key={d.label}
-              className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col items-center gap-3 hover:border-blue-300 hover:shadow-sm transition-all cursor-pointer group"
-            >
-              <div className="w-12 h-12 rounded-full bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center text-2xl transition-colors">
-                {d.icon}
+        {/* Top 6 */}
+        <div className="grid md:grid-cols-3 gap-5 mb-5">
+          {domains.slice(0,6).map((d)=> {
+            const Icon = d.icon;
+
+            return (
+              <div
+                key={d.label}
+                className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col items-center hover:shadow-md transition"
+              >
+                <div className="mb-4">
+                  <Icon
+                    size={54}
+                    strokeWidth={2}
+                    className="text-blue-600"
+                  />
+                </div>
+
+                <h3 className="text-xl font-semibold text-center text-gray-900">
+                  {d.label}
+                </h3>
+
               </div>
-              <p className="text-sm font-semibold text-gray-800 text-center">{d.label}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
+
+        {/* Center last card */}
+        <div className="flex justify-center">
+          <div className="w-full md:w-[360px] bg-white rounded-xl border border-gray-200 shadow-sm p-6 flex flex-col items-center hover:shadow-md transition">
+            <CreditCard
+              size={54}
+              strokeWidth={2}
+              className="text-blue-600 mb-4"
+            />
+
+            <h3 className="text-xl font-semibold text-center text-gray-900">
+              Fintech Innovation Lab
+            </h3>
+          </div>
+        </div>
+
       </div>
     </section>
   );

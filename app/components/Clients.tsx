@@ -1,34 +1,59 @@
 const clients = [
-  { name: "Reliance", sub: "Industries Limited", color: "text-red-700", bg: "bg-red-50" },
-  { name: "HCL", sub: "", color: "text-blue-700", bg: "bg-blue-50" },
-  { name: "IBM", sub: "", color: "text-blue-900", bg: "bg-blue-50" },
-  { name: "CRIF", sub: "higher the next level", color: "text-orange-600", bg: "bg-orange-50" },
-  { name: "ADP", sub: "", color: "text-red-600", bg: "bg-red-50" },
-  { name: "BAYER", sub: "", color: "text-green-700", bg: "bg-green-50" },
+ {name:"Reliance", logo:"/images/clients/reliance.png"},
+ {name:"HCL", logo:"/images/clients/hcl.png"},
+ {name:"IBM", logo:"/images/clients/ibm.png"},
+ {name:"CRIF", logo:"/images/clients/crif.png"},
+ {name:"ADP", logo:"/images/clients/adp.png"},
+ {name:"Bayer", logo:"/images/clients/bayer.png"},
 ];
 
 export default function Clients() {
-  return (
-    <section id="clients" className="py-16 bg-gray-50">
-      <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-          Our Proven <span className="text-blue-500">Partnerships</span>
-        </h2>
-        <p className="text-center text-gray-500 text-sm mb-10">
-          Successful Collaborations With the <span className="text-blue-500">Industry's Best</span>
-        </p>
-        <div className="flex flex-wrap justify-center items-center gap-8">
-          {clients.map((c) => (
-            <div
-              key={c.name}
-              className={`${c.bg} ${c.color} rounded-xl px-6 py-4 flex flex-col items-center justify-center min-w-[100px] shadow-sm border border-gray-100`}
-            >
-              <span className="text-xl font-black">{c.name}</span>
-              {c.sub && <span className="text-[9px] font-medium mt-0.5 opacity-70">{c.sub}</span>}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+return (
+<section id="clients" className="py-20 bg-white">
+<div className="max-w-7xl mx-auto px-8">
+
+<h2 className="text-center text-4xl font-bold mb-4">
+Our Proven <span className="text-blue-600">Partnerships</span>
+</h2>
+
+<p className="text-center text-xl text-gray-600 mb-20">
+Successful Collaborations With the{" "}
+<span className="text-blue-600">
+Industry’s Best
+</span>
+</p>
+
+<div className="
+grid 
+grid-cols-2 
+sm:grid-cols-3 
+lg:grid-cols-6 
+gap-12 
+items-center
+justify-items-center
+">
+{clients.map((client)=>(
+<div
+key={client.name}
+className="
+flex items-center justify-center
+transition duration-300
+"
+>
+<img
+src={client.logo}
+alt={client.name}
+className="
+h-20 md:h-24
+w-auto
+object-contain
+"
+/>
+</div>
+))}
+</div>
+
+</div>
+</section>
+);
 }
