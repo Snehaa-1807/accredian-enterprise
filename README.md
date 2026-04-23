@@ -61,6 +61,7 @@ I started by carefully studying the reference site (enterprise.accredian.com) th
 - Built the tabbed FAQ accordion logic and mobile testimonial slider
 - Created the Next.js API Route Handler boilerplate for /api/enquire
 - Suggested responsive grid layouts and Tailwind class combinations
+- Helped in finding images and the correct icons
 
 **What I modified and verified manually:**
 - Cross-checked every section, label, and copy against the actual reference screenshots to ensure accuracy
@@ -76,22 +77,21 @@ I started by carefully studying the reference site (enterprise.accredian.com) th
 
 ## Improvements I Would Make With More Time
 
-1. **Real images** — Replace emoji/placeholder illustrations with actual photos matching the reference (the two professionals in the hero, real company logos for Reliance, HCL, IBM, CRIF, ADP, Bayer)
 
-2. **Enquire Now modal** — Build a proper popup form triggered by the Enquire Now button with name, email, company, and message fields
+1. **Enquire Now modal** — Build a proper popup form triggered by the Enquire Now button with name, email, company, and message fields
 
-3. **Database integration** — Replace the in-memory lead store with Prisma + PostgreSQL (Supabase free tier) so enquiries persist across server restarts
+2. **Database integration** — Replace the in-memory lead store with Prisma + PostgreSQL (Supabase free tier) so enquiries persist across server restarts
 
-4. **Email notifications** — Send an automated confirmation email to the user and alert email to the enterprise team on each new enquiry using Resend or Nodemailer
+3. **Email notifications** — Send an automated confirmation email to the user and alert email to the enterprise team on each new enquiry using Resend or Nodemailer
 
-5. **Animations** — Add Framer Motion scroll-reveal animations on section entry to match the polished feel of the reference site
+4. **Animations** — Add Framer Motion scroll-reveal animations on section entry to match the polished feel of the reference site
 
-6. **Testimonials carousel** — Implement a proper auto-playing slider for testimonials (the reference shows pagination dots)
+5. **Testimonials carousel** — Implement a proper auto-playing slider for testimonials (the reference shows pagination dots)
 
-7. **Real SVG icons** — Replace emoji icons with proper SVG icons matching the blue circular icon style shown in the Accredian Edge and Domain Expertise sections
+6. **Real SVG icons** — Replace emoji icons with proper SVG icons matching the blue circular icon style shown in the Accredian Edge and Domain Expertise sections
 
-8. **SEO** — Add OpenGraph meta tags, a sitemap.xml, robots.txt, and JSON-LD structured data for better search visibility
+7. **SEO** — Add OpenGraph meta tags, a sitemap.xml, robots.txt, and JSON-LD structured data for better search visibility
 
-9. **Dark mode** — Implement theme switching using next-themes with Tailwind's dark: variant
+8. **Dark mode** — Implement theme switching using next-themes with Tailwind's dark: variant
 
-10. **E2E testing** — Add Playwright tests covering navigation, FAQ tab switching, form validation, and API response handling
+9. **E2E testing** — Add Playwright tests covering navigation, FAQ tab switching, form validation, and API response handling
