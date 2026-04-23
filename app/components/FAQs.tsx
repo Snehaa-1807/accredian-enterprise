@@ -38,7 +38,7 @@ const faqs = {
 
 export default function FAQs() {
 const [activeTab, setActiveTab] = useState<TabKey>("About the Course");
-  const [openIdx, setOpenIdx] = useState(0);
+const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
     <section id="faqs" className="py-20 bg-white">
