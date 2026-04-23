@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 
-const tabs = ["About the Course", "About the Delivery", "Miscellaneous"];
-
+const tabs = ["About the Course", "About the Delivery", "Miscellaneous"] as const;
+type TabKey = typeof tabs[number];
 const faqs = {
   "About the Course": [
     {
@@ -37,7 +37,7 @@ const faqs = {
 };
 
 export default function FAQs() {
-  const [activeTab, setActiveTab] = useState("About the Course");
+const [activeTab, setActiveTab] = useState<TabKey>("About the Course");
   const [openIdx, setOpenIdx] = useState(0);
 
   return (
